@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* busca a raiz do codigo - como eh o padrao - DARK*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.02);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+.light {
+  /*Buscou a classe que criamos no HTML - LIGHT*/
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; /* cover cobre toda a área visível*/
+
+  /*Como agrupar o codigo? - Atalho - ShortHand 
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; 
+  */
+}
+body * {
+  /*O * representa que sera aplicado em toda a extensao do body do documento*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color); /*Ou #ffffff*/
+}
+
+#container {
+  /*border: 1px solid red;*/
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+
+  /*display: block; display: block - da a largura total do elemento*/
+}
+/*DIV (Elemento BLOCK) e IMG (Elemento "in line")
+ Elementos "in line" nao conseguimos aplicar o margin auto. 
+ Para aplicar o "margin: auto" precisamos transformar o elemento em "Display:block" - ver abaixo
+ 
+ Outra opção par alinhar a imagem, seria criar um "pai" e criar um text-align" 
+ (Usar uma opção ou a outra, porque uma cancela a outra)ex: */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  display: block;
+  width: 112px;
+  margin: auto;
+}
+#profile p {
+  font-weight: 500;
+  font-size: 16px; /*Padrão do navegador eh 16px*/
+  line-height: 24px; /*Altura da linha*/
+  margin-top: 8px;
+}
+/*SWITCH - BUTTON*/
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1; /* muda os andares para sobrepor os elementos*/
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* LINKS - LISTAS*/
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur (4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector - HOVER*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*Social Links*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  /*Criado para alinhar as bolinhas dos icones no centro*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
