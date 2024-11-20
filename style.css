@@ -34,6 +34,7 @@ body {
   /*Como agrupar o codigo? - Atalho - ShortHand 
   background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; 
   */
+  height: 100vh; /* ajusta a imagem no fundo para todos os tamanhos de dispositivos*/
 }
 body * {
   /*O * representa que sera aplicado em toda a extensao do body do documento*/
@@ -172,4 +173,15 @@ footer {
   padding: 24px;
   text-align: center;
   font-size: 14px;
+}
+
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
